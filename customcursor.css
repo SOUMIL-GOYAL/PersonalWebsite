@@ -1,0 +1,12 @@
+#customcursor {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background-color: red;
+    position: absolute;
+    z-index: 100;
+}
+
+body {
+    cursor: none;
+}
