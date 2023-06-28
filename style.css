@@ -8,10 +8,14 @@ html,
 body {
     height: 100%;
     width: 100%;
+}
+
+#mainwrapper {
+    position: relative;
     overflow: hidden;
 }
 
-#main {
-    position: relative;
-    overflow: hidden;
+.section {
+    height: 500px;
+    width: 100%;
 }

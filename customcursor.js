@@ -1,5 +1,5 @@
 const cursor = $("#customcursor");
-var x, y, width, height, iw, ih, xvel, yvel, ex, ey;
+var x, y, width, height, iw, ih, xvel, yvel, ex, ey, mousex, mousey;
 
 var kp = 1;
 var ki = 0;
@@ -8,16 +8,29 @@ var lastx = 0;
 var lasty = 0;
 var eix = 0;
 var eiy = 0;
+var lastscrollx = 0;
+var lastscrolly = 0;
 
-$(document).on("mousemove", function(e) {
+function mousehandler(e) {
+    if (typeof(e.pageX) !== "number") {
+        mousex += window.scrollX - lastscrollx;
+    } else {
+        mousex = e.pageX;
+    }
+    if (typeof(e.pageY) !== "number") {
+        mousey += window.scrollY - lastscrolly;
+    } else {
+        mousey = e.pageY;
+    }
+
     width = cursor.outerWidth(true);
     height = cursor.outerHeight(true);
 
-    iw = window.innerWidth;
-    ih = window.innerHeight;
+    iw = $(document).innerWidth();
+    ih = $(document).innerHeight();
 
-    ex = e.pageX - lastx;
-    ey = e.pageY - lasty;
+    ex = mousex - lastx;
+    ey = mousey - lasty;
 
     eix += ex;
     eiy += ey;
@@ -43,4 +56,13 @@ $(document).on("mousemove", function(e) {
 
     lastx = x;
     lasty = y;
+    lastscrollx = window.scrollX;
+    lastscrolly = window.scrollY;
+}
+
+$(document).on("mousemove", function(e) {
+    mousehandler(e);
+});
+$(window).scroll(function(e) {
+    mousehandler(e);
 });
