@@ -94,6 +94,7 @@ function mouseupdate(e) {
 
 }
 
+
 // Attach a mousemove listener to the document to update the mouse position
 $(document).on("mousemove", function(e) {
     mouseupdate(e);
@@ -116,8 +117,8 @@ function animateCursor() {
 
     // Get the current position of the cursor follower element
     var offset = cursor.offset();
-    var cursorX = offset.left;
-    var cursorY = offset.top;
+    // var cursorX = offset.left;
+    // var cursorY = offset.top;
 
     // Calculate the distance and direction between the mouse and the cursor follower element
     if (Math.abs(distanceX) <= 40 && Math.abs(distanceY) <= 40) {
@@ -170,6 +171,13 @@ function animateCursor() {
 
     // Apply the new position to the cursor follower element
     cursor.css({ left: newX, top: newY });
+
+    $(".reveal").each(function() {
+        $(this).css({ "clip-path": "ellipse(" + width / 2 + "px " + height / 2 + "px at " + (newX + (width / 2) + $(this).offset().left) + "px " + (newY + +(height / 2) - $(this).offset().top) + "px)" });
+
+    });
+
+
 
     // Request the browser to call this function again on the next frame
     requestAnimationFrame(animateCursor);

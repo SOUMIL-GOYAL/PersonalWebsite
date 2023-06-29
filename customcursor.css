@@ -4,10 +4,15 @@
     border-radius: 20px;
     background-color: red;
     position: absolute;
-    z-index: 100;
+    z-index: 25;
     pointer-events: none;
 }
 
 body {
     /*cursor: none;*/
+}
+
+.reveal {
+    z-index: 50;
+    position: relative;
 }
