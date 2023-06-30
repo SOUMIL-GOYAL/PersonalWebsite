@@ -1,4 +1,5 @@
 const cursor = $("#customcursor");
+
 // var x, y, width, height, iw, ih, xvel, yvel, ex, ey, mousex, mousey;
 
 // var kp = 1;
@@ -185,3 +186,21 @@ function animateCursor() {
 
 // Start the animation loop
 requestAnimationFrame(animateCursor);
+
+
+function expander(amount) {
+    // cursor.animate({ width: amount, height: amount }, "easeInOutBack");
+
+    cursor.css({ "width": amount });
+    cursor.css({ "height": amount });
+
+}
+
+function normalize() {
+    // cursor.animate({ width: "40px", height: "40px" }, "easeInOutBack");
+
+    cursor.css({ "width": "40px" });
+    cursor.css({ "height": "40px" });
+}
+
+$(".reveal").on("mouseleave", function() { normalize() }).on("mouseover", function() { expander($(this).attr("expansion")) });
