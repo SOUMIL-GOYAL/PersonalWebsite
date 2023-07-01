@@ -199,8 +199,16 @@ function expander(amount) {
 function normalize() {
     // cursor.animate({ width: "40px", height: "40px" }, "easeInOutBack");
 
-    cursor.css({ "width": "40px" });
-    cursor.css({ "height": "40px" });
+    cursor.css({ "width": "40px", "height": "40px", "display": "block" });
 }
 
 $(".reveal").on("mouseleave", function() { normalize() }).on("mouseover", function() { expander($(this).attr("expansion")) });
+
+$(".merge").on("mouseover", function() {
+    // cursor.css({ "display": "none" })
+    cursor.css({ "width": "0px", "height": "0px" });
+    $(this).css({ "background-color": cursor.css("background-color") })
+}).on("mouseleave", function() {
+    normalize();
+    $(this).css({ "background-color": "" })
+});
