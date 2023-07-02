@@ -16,4 +16,9 @@ body {
 .reveal {
     z-index: 30;
     position: relative;
+    display: inline;
+}
+
+.cover {
+    position: absolute;
 }

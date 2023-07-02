@@ -1,6 +1,8 @@
 :root {
-    --bluetheme: #0563bb;
+    --redtheme: red;
     --graytheme: #f2f3f5;
+    --textontheme: white;
+    --textcolor: black;
 }
 
 #navigation {
@@ -26,13 +28,13 @@
     align-items: center;
     justify-content: left;
     transition: width .5s ease-in-out, color .5s ease-in-out;
-    color: black;
+    color: var(--textcolor);
     text-decoration: none;
 }
 
 #navlist a:hover {
     width: 160px;
-    color: white;
+    color: var(--textontheme);
 }
 
 #navlist li h4 {
@@ -50,4 +52,9 @@
 #navlist a:hover h4 {
     display: inline;
     font-size: 20px;
+}
+
+#navlist .active {
+    background-color: var(--redtheme);
+    color: var(--textontheme);
 }
