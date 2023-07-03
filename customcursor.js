@@ -177,6 +177,7 @@ function animateCursor() {
     cursor.css({ left: newX, top: newY });
 
     var inreveal = false;
+    var inmerge = false;
 
     $(".reveal").each(function() {
         // $(this).css({ "clip-path": "ellipse(" + width / 2 + "px " + height / 2 + "px at " + (newX + (width / 2) + $(this).offset().left) + "px " + (newY + +(height / 2) - $(this).offset().top) + "px)" });
@@ -187,12 +188,21 @@ function animateCursor() {
         }
     });
 
-    if (inreveal == false) {
+
+
+    $(".merge").each(function() {
+        if ($(this).offset().left <= mousePosition.x && $(this).offset().left + $(this).width() >= mousePosition.x && $(this).offset().top <= mousePosition.y && $(this).offset().top + $(this).height() >= mousePosition.y) {
+            cursor.css({ "width": "0px", "height": "0px" });
+            $(this).css({ "background-color": cursor.css("background-color") });
+            inmerge = true;
+        } else {
+            $(this).css({ "background-color": "" });
+        }
+    });
+
+    if (inreveal == false && inmerge == false) {
         normalize();
     }
-
-
-
     // Request the browser to call this function again on the next frame
     requestAnimationFrame(animateCursor);
 }
@@ -224,14 +234,7 @@ function normalize() {
 //     expander($(this).attr("expansion"))
 // });
 
-$(".merge").on("mouseover", function() {
-    // cursor.css({ "display": "none" })
-    cursor.css({ "width": "0px", "height": "0px" });
-    $(this).css({ "background-color": cursor.css("background-color") })
-}).on("mouseleave", function() {
-    normalize();
-    $(this).css({ "background-color": "" })
-});
+
 
 function aligncovers() {
     $(".cover").each(function() {
