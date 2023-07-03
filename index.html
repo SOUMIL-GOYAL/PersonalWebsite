@@ -25,7 +25,11 @@
 <body>
     <div id="customcursor"></div>
     <div id="mainwrapper">
+        <button type="button" class="merge" id="navbartoggle"> 
+            <i class="fa-solid fa-bars"></i> 
+        </button>
         <nav id="navigation">
+
             <ul id="navlist">
                 <li>
                     <a href="#home" class="merge">
@@ -34,9 +38,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#details" class="merge">
+                    <a href="#about" class="merge">
                         <i class="navicon fa-fw fa-regular fa-user"></i>
-                        <h4>Details</h4>
+                        <h4>About</h4>
                     </a>
                 </li>
                 <li>
@@ -74,17 +78,64 @@
                 <h3 id="test"></h3>
             </div>
         </section>
-        <div class="section">
-            <h1 class="reveal" expansion="100px">SOUMIL GOYAL</h1>yoyoyo>
-        </div>
-        <div class="section reveal" style="background-color: black;">yoyoyyy</div>
-        <div class="section">yoyoy</div>
+        <section id="about" class="section-container">
+            <h1 class="section-title">DETAILS</h1>
+            <h2 class="section-subtitle">Here is some basic information about me.</h2>
+            <div class="row">
+                <div class="col-sm-4"> <img class="img-responsive headshot-image" src="https://codehs.com/uploads/0cff61c01fca0780376dfbabb388faee"> </div>
+                <div class="col-sm-8 vertical-down">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul class="fa-ul details-list break-word">
+                                <li><i class="fa-regular fa-angle-right"></i>
+                                    <h3> Birthdate: </h3>
+                                    <h4>February 8, 2006</h4>
+                                </li>
+                                <li><i class="fa-regular fa-angle-right"></i>
+                                    <h3> Email: </h3>
+                                    <h4>soumil.goyal@yahoo.com.sg</h4>
+                                </li>
+                                <li><i class="fa-regular fa-angle-right"></i>
+                                    <h3> School: </h3>
+                                    <h4>Lamar High School</h4>
+                                </li>
+                                <li><i class="fa-regular fa-angle-right"></i>
+                                    <h3> Phone: </h3>
+                                    <h4>832-212-5160</h4>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            <ul class="fa-ul details-list">
+                                <li><i class="fa-regular fa-angle-right"></i>
+                                    <h3> Age/Grade: </h3>
+                                    <h4>16/11th Grade</h4>
+                                </li>
+                                <li><i class="fa-regular fa-angle-right"></i>
+                                    <h3> Languages: </h3>
+                                    <h4>English, Hindi, Mandarin</h4>
+                                </li>
+                                <li><i class="fa-regular fa-angle-right"></i>
+                                    <h3> City: </h3>
+                                    <h4>Houston, Texas</h4>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="big-content"> Hello, my name is Soumil Goyal. I am a Singaporean that was born in India who now lives in the USA. I live with my parents and my little brother. I aim to consistently try my hardest to pruduce the best results. I direct my work ethic
+                        to my goals like earning all 100% scores and exceding expectation. I also strive to understand complex concepts instead of rotely memorizing information. I use the ideas I learn to apply in my daily life to be the best verson of
+                        myself. Learn more about me below! </h3>
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- Load jQuery from jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
 
-    <!-- Load jQuery UI from Microsoft Ajax CDN -->
     <script src="customcursor.js"></script>
     <script src="nav.js"></script>
     <script src="typer.js"></script>

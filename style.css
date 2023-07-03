@@ -20,8 +20,18 @@ body {
     width: 100%;
 }
 
+@media screen and (max-width: 850px) {
+    .section-container {
+        padding-left: 20px !important;
+    }
+}
+
 
 /* HOME/LANDING */
+
+.section-container {
+    padding-left: 220px;
+}
 
 #home {
     width: 100%;
@@ -29,7 +39,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 220px;
     font-family: Montserrat, sans-serif;
     align-items: flex-start;
 }
@@ -41,4 +50,21 @@ body {
 #typing h2,
 h3 {
     display: inline;
+}
+
+#typing h3 {
+    border-right: solid 3px black;
+    animation: blinker 0.5s steps(2, end) infinite;
+}
+
+@keyframes blinker {
+    0% {
+        border-right-color: transparent;
+    }
+    50% {
+        border-right-color: black;
+    }
+    100% {
+        border-right-color: black;
+    }
 }

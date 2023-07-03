@@ -97,13 +97,16 @@ function mouseupdate(e) {
 
 
 // Attach a mousemove listener to the document to update the mouse position
-$(document).on("mousemove", function(e) {
-    mouseupdate(e);
-});
 $(window).scroll(function(e) {
     mouseupdate(e);
 });
-$(document).bind("dragover", function(e) {
+$(document).on("mousemove", function(e) {
+    mouseupdate(e);
+});
+$(document).on("touchmove", function(e) {
+    mouseupdate(e.originalEvent.touches[0]);
+});
+$(document).on("dragover", function(e) {
     mouseupdate(e);
 });
 
@@ -173,11 +176,20 @@ function animateCursor() {
     // Apply the new position to the cursor follower element
     cursor.css({ left: newX, top: newY });
 
+    var inreveal = false;
+
     $(".reveal").each(function() {
         // $(this).css({ "clip-path": "ellipse(" + width / 2 + "px " + height / 2 + "px at " + (newX + (width / 2) + $(this).offset().left) + "px " + (newY + +(height / 2) - $(this).offset().top) + "px)" });
         $(this).css({ "clip-path": "ellipse(" + width / 2 + "px " + height / 2 + "px at " + (newX + (width / 2) - $(this).offset().left) + "px " + (newY + +(height / 2) - $(this).offset().top) + "px)" });
-
+        if ($(this).offset().left <= mousePosition.x && $(this).offset().left + $(this).width() >= mousePosition.x && $(this).offset().top <= mousePosition.y && $(this).offset().top + $(this).height() >= mousePosition.y) {
+            expander($(this).attr("expansion"));
+            inreveal = true;
+        }
     });
+
+    if (inreveal == false) {
+        normalize();
+    }
 
 
 
@@ -202,7 +214,15 @@ function normalize() {
     cursor.css({ "width": "40px", "height": "40px", "display": "block" });
 }
 
-$(".reveal").on("mouseleave", function() { normalize() }).on("mouseover", function() { expander($(this).attr("expansion")) });
+// $(".reveal").on("mouseleave", function() {
+//     normalize()
+// }).on("mouseover", function() {
+//     expander($(this).attr("expansion"))
+// }).on("vmouseleave", function() {
+//     normalize()
+// }).on("touchmove", function() {
+//     expander($(this).attr("expansion"))
+// });
 
 $(".merge").on("mouseover", function() {
     // cursor.css({ "display": "none" })

@@ -9,6 +9,7 @@ $("#navigation a, footer a[href='#top'], a[href^='#']").on('click', function(eve
             window.location.hash = hash;
         });
     }
+    $("#navlist").toggleClass("autowidth");
 });
 
 //HIGHLIGHT NAVIGATION WHEN IN POSITION
@@ -31,3 +32,7 @@ function navactive() {
     var now = document.querySelectorAll("a[href='#" + active.attr("id") + "']");
     now[0].className += " active"
 }
+
+$("#navbartoggle").click(function() {
+    $("#navlist").toggleClass("autowidth");
+});

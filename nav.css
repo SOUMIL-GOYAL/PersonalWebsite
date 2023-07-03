@@ -5,6 +5,15 @@
     --textcolor: black;
 }
 
+@media screen and (max-width: 850px) {
+    #navbartoggle {
+        display: flex !important;
+    }
+    #navlist {
+        width: 0px;
+    }
+}
+
 #navigation {
     position: fixed;
     left: 0;
@@ -16,6 +25,8 @@
 
 #navlist {
     list-style-type: none;
+    overflow: hidden;
+    transition: width .5s ease-in-out;
 }
 
 #navlist a {
@@ -57,4 +68,33 @@
 #navlist .active {
     background-color: var(--redtheme);
     color: var(--textontheme);
+}
+
+#navbartoggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    color: var(--redtheme);
+    border-radius: 10px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    display: none;
+}
+
+#navbartoggle i {
+    font-size: 40px;
+    transition: color .5s ease-in-out;
+}
+
+#navbartoggle:hover {
+    color: var(--textontheme);
+}
+
+.autowidth {
+    width: auto !important;
 }
