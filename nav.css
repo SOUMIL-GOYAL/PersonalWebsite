@@ -1,8 +1,8 @@
 :root {
     --redtheme: red;
-    --graytheme: #f2f3f5;
+    --graytheme: #303030;
     --textontheme: white;
-    --textcolor: black;
+    --textcolor: #aaaaaa;
 }
 
 @media screen and (max-width: 850px) {
@@ -11,13 +11,15 @@
     }
     #navlist {
         width: 0px;
+        opacity: 0;
+        padding-left: 0px;
     }
 }
 
 #navigation {
     position: fixed;
     left: 0;
-    margin: 30px;
+    /* margin: 30px; */
     top: 50%;
     transform: translate(0%, -50%);
     z-index: 50;
@@ -26,7 +28,8 @@
 #navlist {
     list-style-type: none;
     overflow: hidden;
-    transition: width .5s ease-in-out;
+    /* padding-left: 30px; */
+    transition: width .5s ease-in-out, opacity .5s ease-in-out, padding-left .5s ease-in-out;
 }
 
 #navlist a {
@@ -96,5 +99,7 @@
 }
 
 .autowidth {
-    width: auto !important;
+    width: 100% !important;
+    opacity: 1 !important;
+    padding-left: 30px !important;
 }

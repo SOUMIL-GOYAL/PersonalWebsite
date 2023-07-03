@@ -17,6 +17,7 @@ body {
     z-index: 30;
     position: relative;
     display: inline;
+    color: var(--textontheme);
 }
 
 .cover {

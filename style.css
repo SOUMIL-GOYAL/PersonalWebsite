@@ -1,3 +1,7 @@
+:root {
+    --text: #dddddd;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -8,6 +12,8 @@ html,
 body {
     height: 100%;
     width: 100%;
+    background-color: #151716;
+    color: var(--text);
 }
 
 #mainwrapper {
