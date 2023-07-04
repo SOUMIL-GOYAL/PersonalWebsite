@@ -104,6 +104,7 @@ $(document).on("mousemove", function(e) {
     mouseupdate(e);
 });
 $(document).on("touchmove", function(e) {
+    e.preventDefault();
     mouseupdate(e.originalEvent.touches[0]);
 });
 $(document).on("dragover", function(e) {
@@ -177,7 +178,7 @@ function animateCursor() {
     cursor.css({ left: newX, top: newY });
 
     var inreveal = false;
-    var inmerge = false;
+
 
     $(".reveal").each(function() {
         // $(this).css({ "clip-path": "ellipse(" + width / 2 + "px " + height / 2 + "px at " + (newX + (width / 2) + $(this).offset().left) + "px " + (newY + +(height / 2) - $(this).offset().top) + "px)" });
@@ -189,7 +190,7 @@ function animateCursor() {
     });
 
 
-
+    var inmerge = false;
     $(".merge").each(function() {
         if ($(this).offset().left <= mousePosition.x && $(this).offset().left + $(this).width() >= mousePosition.x && $(this).offset().top <= mousePosition.y && $(this).offset().top + $(this).height() >= mousePosition.y) {
             cursor.css({ "width": "0px", "height": "0px" });
@@ -238,11 +239,14 @@ function normalize() {
 
 function aligncovers() {
     $(".cover").each(function() {
-        $(this).css({ "top": $(this).prev().offset().top + "px", "left": $(this).prev().offset().left })
+        $(this).css({ "top": $(this).prev().position().top + "px", "left": $(this).prev().position().left })
     });
 
 }
-aligncovers();
+
+$(document).ready(function() {
+    aligncovers();
+});
 
 $(window).on('resize', function() {
     aligncovers();

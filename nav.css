@@ -1,10 +1,3 @@
-:root {
-    --redtheme: red;
-    --graytheme: #303030;
-    --textontheme: white;
-    --textcolor: #aaaaaa;
-}
-
 @media screen and (max-width: 850px) {
     #navbartoggle {
         display: flex !important;
@@ -37,12 +30,12 @@
     margin: 15px;
     width: 60px;
     height: 60px;
-    background-color: var(--graytheme);
+    background-color: var(--subtheme);
     display: flex;
     align-items: center;
     justify-content: left;
     transition: width .5s ease-in-out, color .5s ease-in-out;
-    color: var(--textcolor);
+    color: var(--textonsubtheme);
     text-decoration: none;
 }
 
@@ -69,8 +62,9 @@
 }
 
 #navlist .active {
-    background-color: var(--redtheme);
+    background-color: var(--themecolor);
     color: var(--textontheme);
+    box-shadow: 0 0 20px red;
 }
 
 #navbartoggle {
@@ -78,7 +72,7 @@
     top: 0;
     right: 0;
     margin: 10px;
-    color: var(--redtheme);
+    color: var(--textcolor);
     border-radius: 10px;
     background-color: transparent;
     border: none;
@@ -87,6 +81,7 @@
     align-items: center;
     padding: 5px;
     display: none;
+    z-index: 50;
 }
 
 #navbartoggle i {

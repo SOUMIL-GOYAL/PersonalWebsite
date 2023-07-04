@@ -18,6 +18,7 @@ var active;
 $(window).scroll(function() {
     navactive();
 });
+navactive();
 
 function navactive() {
     var sections = $(".section-container");
