@@ -6,7 +6,7 @@ $(document).ready(function() {
             // outlineColour: "transparent",
             reverse: true,
             depth: 0.7,
-            maxSpeed: 0.1,
+            maxSpeed: 0.075,
             // weight: true,
             clickToFront: 500,
             decel: .5,
@@ -16,8 +16,8 @@ $(document).ready(function() {
             txtScale: 1,
             zoom: .9,
             pinchZoom: true,
-            outlineColour: '#f6f',
-            outlineThickness: 3,
+            outlineMethod: 'colour',
+            outlineColour: 'tagbg',
 
 
         }, "tags")) {
@@ -40,4 +40,27 @@ resizeCanvas();
 
 $(window).on('resize', function() {
     resizeCanvas();
+});
+
+$("#cloudcanvas").on("mouseleave", function() {
+    $(this).tagcanvas("setspeed", [0.5, 0]);
+});
+
+$("#cloudcanvas a").on("click", function(e) {
+    e.preventDefault();
+});
+
+$(".skillcard").each(function() {
+    var currentcard = $(this);
+    currentcard.on("mouseover", function() {
+        currentcard.css({ "box-shadow": "0 0 10px " + currentcard.attr("hovercolor") });
+        currentcard.find("i").css({ "color": currentcard.attr("hovercolor") });
+    });
+    currentcard.on("mouseleave", function() {
+        currentcard.css({ "box-shadow": "" });
+        currentcard.find("i").css({ "color": "" });
+    });
+    currentcard.click(function() {
+        currentcard.toggleClass("flipped");
+    });
 });

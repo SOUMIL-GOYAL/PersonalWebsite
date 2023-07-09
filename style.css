@@ -6,6 +6,7 @@
     --textcolor: #dddddd;
     --fontfamily: Montserrat, sans-serif;
     --backgroundcolor: #151716;
+    --almostbackground: #222423;
 }
 
 * {
@@ -46,6 +47,7 @@ body {
 .section-title {
     padding-top: 50px;
     font-size: 50px;
+    margin-bottom: 20px;
 }
 
 .heading {
@@ -54,6 +56,28 @@ body {
     flex-direction: column;
     align-items: center;
     padding-bottom: 20px;
+}
+
+.section-title:before {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: var(--textcolor);
+    position: relative;
+    top: 60px;
+    left: calc(50% - 60px);
+}
+
+.section-title:after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: var(--themecolor);
+    position: relative;
+    bottom: 3px;
+    left: calc(50% - 20px);
 }
 
 
@@ -184,21 +208,133 @@ h3 {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    gap: 10px 10px;
 }
 
 #skills #skillscanvascontainer {
     flex: 1 1 0;
 }
 
-#skills #skillsdetails {
+#skills #skillsdetailscontainer {
     flex: 1 1 0;
 }
 
 #skillscanvascontainer {
+    width: 100%;
     min-width: 50%;
     aspect-ratio: 1 / 1;
     box-shadow: 0 0 10px var(--subtheme);
     border-radius: 10px;
-    color: var(--themecolor);
     font-weight: 900;
+}
+
+#skillscanvascontainer a {
+    color: var(--textcolor);
+    background-color: var(--themecolor);
+}
+
+#skillsdetailscontainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.skillsdetail {
+    display: flex;
+    flex-direction: column;
+}
+
+.skilltitle {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.topdetail {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.cardcontainer {
+    aspect-ratio: 1/1;
+    width: 50%;
+    flex: 1 1 0;
+    background-color: transparent;
+    perspective: 1000px;
+}
+
+.skillcard {
+    transition: box-shadow .4s ease-in;
+    background-color: var(--almostbackground);
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.cardfront,
+.cardback {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.cardfront {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardback {
+    transform: rotateY(180deg);
+}
+
+.flipped {
+    transform: rotateY(180deg);
+}
+
+.skilldescription {
+    flex: 1 1 0;
+}
+
+.skillcard i {
+    font-size: 100px;
+    transition: color .25s ease-in;
+    /* left: calc(50% + 50px);
+    top: calc(50% + 50px); */
+}
+
+.bottomdetail {
+    margin: 10px;
+}
+
+.bottomdetail h5 {
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.bottomdetail table,
+.bottomdetail table th,
+.bottomdetail table td {
+    border-collapse: collapse;
+    border: 2px solid;
+    border-color: var(--subtheme);
+    padding: 3px;
+}
+
+.bottomdetail table {
+    width: 100%;
+}
+
+@media screen and (max-width: 850px) {
+    #skills .section-content {
+        flex-direction: column;
+    }
 }
