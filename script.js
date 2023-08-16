@@ -46,8 +46,14 @@ $("#cloudcanvas").on("mouseleave", function() {
     $(this).tagcanvas("setspeed", [0.5, 0]);
 });
 
-$("#cloudcanvas a").on("click", function(e) {
-    e.preventDefault();
+$("#cloudcanvas a").each(function() {
+    var currentlink = $(this);
+    currentlink.on("click", function(e) {
+        e.preventDefault();
+        $("#skillsdetailscontainer .shown").removeClass("shown");
+        var reference = currentlink.attr("href");
+        $(reference).addClass("shown");
+    });
 });
 
 $(".skillcard").each(function() {
