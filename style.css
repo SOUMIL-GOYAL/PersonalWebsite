@@ -39,7 +39,7 @@ body {
 }
 
 .section-container {
-    padding-left: 220px;
+    margin-left: 220px;
     padding-right: 10px;
     font-family: var(--fontfamily);
 }
@@ -371,4 +371,54 @@ h3 {
     #skills .section-content {
         flex-direction: column;
     }
+}
+
+
+/* Awards and Achievements section*/
+
+#achieve {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.list-header {
+    font-size: 26px;
+    color: var(--textonsubtheme);
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.list-category {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--themecolor);
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+
+.under-header {
+    padding: 0 0 20px 20px;
+    margin-top: -2px;
+    position: relative;
+    border-left: 2px solid var(--themecolor);
+}
+
+.under-header ul {
+    color: var(--textcolor);
+    font-size: 12px;
+}
+
+.under-header::before {
+    content: "";
+    position: absolute;
+    left: -9px;
+    top: 0px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50px;
+    border: 2px solid var(--themecolor);
+    background: var(--backgroundcolor);
+    box-sizing: border-box;
 }
