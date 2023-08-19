@@ -39,7 +39,7 @@ body {
 }
 
 .section-container {
-    margin-left: 220px;
+    padding-left: 220px;
     padding-right: 10px;
     font-family: var(--fontfamily);
 }
@@ -380,6 +380,7 @@ h3 {
     position: relative;
     top: 0;
     left: 0;
+    max-width: 100%;
 }
 
 .list-header {

@@ -93,6 +93,7 @@ function pulse(thecard) {
 function makeskillsize() {
     console.log("" + ($('.skillsdetail.shown').position().top + $(".skillsdetail.shown").height()));
     $("#skills").css({ "height": "" + ($('.skillsdetail.shown').offset().top + $(".skillsdetail.shown").height() - $("#skills").offset().top) });
+    aligncovers();
 }
 
 
@@ -135,7 +136,7 @@ function calnumlistcol() {
 
 function sizelistcol() {
     var numperrow = calnumlistcol();
-    var w = document.getElementById("achievements").clientWidth;
+    var w = $("#achievements").width();
 
     var them = document.getElementsByClassName("list-column");
     var available = w / numperrow;
