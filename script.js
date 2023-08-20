@@ -26,6 +26,9 @@ $(document).ready(function() {
     }
 });
 
+filterSelection("all");
+sizeit();
+makepositions();
 sizelistcol();
 makelistcolpositions();
 makesizeinachieve();
@@ -44,6 +47,9 @@ function resizeCanvas() {
 resizeCanvas();
 
 $(window).on('resize', function() {
+    sizeit();
+    makepositions();
+
     resizeCanvas();
 
     sizelistcol();
@@ -189,4 +195,135 @@ function makelistcolpositions() {
             }
         }
     }
+}
+
+
+//SHOWCASE SECTION
+function sizeit() {
+    var numperrow = calnumperrow();
+    var w = $("#showcase").width();
+
+    var them = document.getElementsByClassName("filteritem");
+    var available = w / numperrow;
+    var realwidth = available - 10;
+    for (var g = 0; g < them.length; g++) {
+        them[g].style.width = realwidth + "px";
+    }
+    return available;
+}
+
+function calnumperrow() {
+    if (document.getElementById("showcase").clientWidth >= 1000) {
+        return 3;
+    } else if (document.getElementById("showcase").clientWidth >= 650) {
+        return 2;
+    } else if (document.getElementById("showcase").clientWidth < 650) {
+        return 1;
+    }
+}
+
+function filterSelection(c) {
+    var x, i;
+    x = document.getElementsByClassName("filteritem");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+        w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) {
+            w3AddClass(x[i], "show");
+        }
+    }
+    makepositions();
+}
+
+function makepositions() {
+    var heightadd = 0;
+    var width = sizeit();
+    var numperrow = calnumperrow();
+    var theshown = document.getElementsByClassName("show");
+    for (var u = 0; u < theshown.length; u++) {
+        if (u % numperrow == 0) {
+            if (u / numperrow == 0) {
+                theshown[u].style.position = "absolute";
+                theshown[u].style.top = "0";
+                theshown[u].style.left = "0";
+            } else {
+                theshown[u].style.position = "absolute";
+                heightadd = 0;
+                for (var total = u / numperrow, done = 0; done < total; done++) {
+                    heightadd += theshown[done * numperrow].clientHeight + 10;
+                }
+                theshown[u].style.top = heightadd + "px";
+                theshown[u].style.left = "0";
+            }
+        }
+
+        if (u % numperrow == 1) {
+            if (u == 1) {
+                theshown[u].style.position = "absolute";
+                theshown[u].style.top = "0";
+                theshown[u].style.left = width + "px";
+            } else {
+                theshown[u].style.position = "absolute";
+                heightadd = 0;
+                for (
+                    var total = Math.floor(u / numperrow), done = 1, counter = 0; counter < total; counter++, done += numperrow
+                ) {
+                    heightadd += theshown[done].clientHeight + 10;
+                }
+                theshown[u].style.top = heightadd + "px";
+                theshown[u].style.left = width + "px";
+            }
+        }
+
+        if (u % numperrow == 2) {
+            if (u == 2) {
+                theshown[u].style.position = "absolute";
+                theshown[u].style.top = "0";
+                theshown[u].style.left = width * 2 + "px";
+            } else {
+                theshown[u].style.position = "absolute";
+                heightadd = 0;
+                for (
+                    var total = Math.floor(u / numperrow), done = 2, counter = 0; counter < total; counter++, done += numperrow
+                ) {
+                    heightadd += theshown[done].clientHeight + 10;
+                }
+                theshown[u].style.top = heightadd + "px";
+                theshown[u].style.left = width * 2 + "px";
+            }
+        }
+    }
+}
+
+function w3AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {
+            element.className += " " + arr2[i];
+        }
+    }
+}
+
+function w3RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+            arr1.splice(arr1.indexOf(arr2[i]), 1);
+        }
+    }
+    element.className = arr1.join(" ");
+}
+
+var btnContainer = document.getElementById("button-container");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("activebutton");
+        current[0].className = current[0].className.replace(" activebutton", "");
+        this.className += " activebutton";
+    });
 }
