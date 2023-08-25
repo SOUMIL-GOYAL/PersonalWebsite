@@ -48,9 +48,8 @@ async function detectFaces() {
             const face = ctx.getImageData(start[0], start[1], size[0], size[1]);
             const faceTensor = tf.browser.fromPixels(face);
             const croppedFace = tf.image.resizeBilinear(faceTensor, [224, 224]);
-
-            // Use your custom model for prediction
-            const result = await custommodel.predict(croppedFace);
+            const expanded = tf.expandDims(croppedFace, 0)
+            const result = await custommodel.predict(expanded);
             console.log(result);
             // ctx.fillText(result, start[0], start[1] > 10 ? start[1] - 5 : 10);
 
@@ -72,7 +71,7 @@ video.addEventListener("loadeddata", async() => {
     const URL = "model/"
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
-    custommodel = await tmImage.load(modelURL, metadataURL);
+    custommodel = await tf.loadLayersModel(modelURL);
     // call detect faces every 100 milliseconds or 10 times every second
     setInterval(detectFaces, 100);
 });
