@@ -466,7 +466,6 @@ h3 {
     right: 0;
     bottom: 0;
     text-align: center;
-    z-index: 200;
     transition: all ease-in-out 0.3s;
     display: flex;
     flex-direction: column;
@@ -567,7 +566,6 @@ label:hover {
     font-size: 14px;
     font-weight: 600;
     color: var(--textcolor);
-    z-index: 30;
     margin-bottom: 20px;
     background-color: transparent;
     border: 0;
