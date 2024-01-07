@@ -3,6 +3,11 @@ let model, custommodel;
 // declare a canvas variable and get its context
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
+let labelContainer = document.getElementById("label-container");
+
+for (let i = 0; i < 11; i++) { // and class labels
+    labelContainer.appendChild(document.createElement("div"));
+}
 
 const setupCamera = () => {
     navigator.mediaDevices
@@ -48,9 +53,15 @@ async function detectFaces() {
             const face = ctx.getImageData(start[0], start[1], size[0], size[1]);
             const faceTensor = tf.browser.fromPixels(face);
             const croppedFace = tf.image.resizeBilinear(faceTensor, [224, 224]);
-            const expanded = tf.expandDims(croppedFace, 0)
+            const expanded = tf.expandDims(croppedFace, 0);
             const result = await custommodel.predict(expanded);
-            console.log(result);
+            const probabilities = tf.softmax(result).arraySync();
+            console.log(probabilities);
+            for (let i = 0; i < 11; i++) {
+                const classPrediction =
+                    result[i].className + ": " + result[i].probability.toFixed(2);
+                labelContainer.childNodes[i].innerHTML = classPrediction;
+            }
             // ctx.fillText(result, start[0], start[1] > 10 ? start[1] - 5 : 10);
 
             // drawing small rectangles for the face landmarks
@@ -71,7 +82,8 @@ video.addEventListener("loadeddata", async() => {
     const URL = "model/"
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
-    custommodel = await tf.loadLayersModel(modelURL);
+    custommodel = await tf.loadLayersModel(modelURL, metadataURL);
+
     // call detect faces every 100 milliseconds or 10 times every second
     setInterval(detectFaces, 100);
 });
