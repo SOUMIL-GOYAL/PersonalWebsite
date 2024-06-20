@@ -170,7 +170,7 @@ function makelistcolpositions() {
                 for (
                     var total = u / numperrow, done = u, counter = 0; counter < total; counter++, done = done - numperrow
                 ) {
-                    heightadd += theshown[done - numperrow].clientHeight + 10;
+                    heightadd += theshown[done - numperrow].clientHeight + 20;
                 }
                 theshown[u].style.top = heightadd + "px";
                 theshown[u].style.left = "0";
@@ -188,7 +188,7 @@ function makelistcolpositions() {
                 for (
                     var total = Math.floor(u / numperrow), done = u, counter = 0; counter < total; counter++, done--
                 ) {
-                    heightadd += theshown[done - numperrow].clientHeight + 10;
+                    heightadd += theshown[done - numperrow].clientHeight + 20;
                 }
                 theshown[u].style.top = heightadd + "px";
                 theshown[u].style.left = width + "px";
