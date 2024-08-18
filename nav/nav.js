@@ -9,7 +9,7 @@ $("#navigation a, footer a[href='#top'], a[href^='#']").on('click', function(eve
             window.location.hash = hash;
         });
     }
-    $("#navlist").toggleClass("autowidth");
+    //$("#navlist").toggleClass("autowidth");
 });
 
 //HIGHLIGHT NAVIGATION WHEN IN POSITION
