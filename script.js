@@ -24,7 +24,6 @@ $(document).ready(function() {
         // something went wrong hide the canvas container,
         // $("#cloudcanvascontainer");
     }
-    linkchecker();
 });
 
 filterSelection("all");
@@ -33,7 +32,9 @@ makepositions();
 sizelistcol();
 makelistcolpositions();
 makesizeinachieve();
-makeskillsize()
+makeskillsize();
+linkchecker();
+
 
 
 function resizeCanvas() {
@@ -77,11 +78,10 @@ $("#cloudcanvas a").each(function() {
 
 function linkchecker() {
     let hash = window.location.hash;
-    $("#skillsdetailscontainer .shown").removeClass("shown");
-    console.log($("#skillsdetailscontainer " + hash));
-    $("#skillsdetailscontainer " + hash).addClass("shown");
-    console.log(hash);
-
+    if ($.contains($("#skillsdetailscontainer")[0], $(hash)[0])) {
+        $("#skillsdetailscontainer .shown").removeClass("shown");
+        $("#skillsdetailscontainer " + hash).addClass("shown");
+    }
 }
 
 $(".skillcard").each(function() {

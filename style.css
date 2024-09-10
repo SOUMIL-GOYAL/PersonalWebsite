@@ -424,6 +424,11 @@ h3 {
     box-sizing: border-box;
 }
 
+.under-header ul li ul {
+    font-size: 10px;
+    padding-left: 10px;
+}
+
 
 /* Showcase Section */
 
