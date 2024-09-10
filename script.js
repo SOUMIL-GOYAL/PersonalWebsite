@@ -24,6 +24,7 @@ $(document).ready(function() {
         // something went wrong hide the canvas container,
         // $("#cloudcanvascontainer");
     }
+    linkchecker();
 });
 
 filterSelection("all");
@@ -73,6 +74,15 @@ $("#cloudcanvas a").each(function() {
         $(reference).addClass("shown");
     });
 });
+
+function linkchecker() {
+    let hash = window.location.hash;
+    $("#skillsdetailscontainer .shown").removeClass("shown");
+    console.log($("#skillsdetailscontainer " + hash));
+    $("#skillsdetailscontainer " + hash).addClass("shown");
+    console.log(hash);
+
+}
 
 $(".skillcard").each(function() {
     var currentcard = $(this);
