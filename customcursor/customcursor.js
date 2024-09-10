@@ -192,7 +192,10 @@ function animateCursor() {
 
     var inmerge = false;
     $(".merge").each(function() {
-        if ($(this).offset().left <= mousePosition.x && $(this).offset().left + $(this).width() >= mousePosition.x && $(this).offset().top <= mousePosition.y && $(this).offset().top + $(this).height() >= mousePosition.y) {
+        if ($(this).offset().left <= mousePosition.x &&
+            $(this).offset().left + $(this).outerWidth() >= mousePosition.x &&
+            $(this).offset().top <= mousePosition.y &&
+            $(this).offset().top + $(this).outerHeight() >= mousePosition.y) {
             cursor.css({ "width": "0px", "height": "0px" });
             $(this).css({ "background-color": cursor.css("background-color") });
             inmerge = true;

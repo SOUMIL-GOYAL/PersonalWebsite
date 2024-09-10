@@ -568,24 +568,23 @@ label:hover {
     text-decoration: none;
     cursor: pointer;
     display: inline;
-    font-size: 14px;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 400;
     color: var(--textcolor);
     margin-bottom: 20px;
-    background-color: transparent;
+    background-color: var(--subtheme);
     border: 0;
     border: none;
     outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 *:focus {
     outline: 0 !important;
 }
 
-.btn:hover {
-    color: var(--themecolor);
-}
-
 .activebutton {
-    color: var(--themecolor) !important;
+    background-color: var(--themecolor) !important;
 }
