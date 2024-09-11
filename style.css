@@ -104,7 +104,7 @@ h3 {
 }
 
 #typing h3 {
-    border-right: solid 3px black;
+    border-right: solid 3px var(--textcolor);
     animation: blinker 0.5s steps(2, end) infinite;
 }
 
@@ -113,10 +113,10 @@ h3 {
         border-right-color: transparent;
     }
     50% {
-        border-right-color: black;
+        border-right-color: var(--textcolor);
     }
     100% {
-        border-right-color: black;
+        border-right-color: var(--textcolor);
     }
 }
 
@@ -440,8 +440,8 @@ h3 {
     flex-wrap: wrap;
 }
 
-.show {
-    display: inline !important;
+#rowofitems .show {
+    display: inline-flex !important;
 }
 
 @keyframes zoom-away {
@@ -536,8 +536,7 @@ label:hover {
 }
 
 .filteritem {
-    background-color: var(--almostbackground);
-    text-align: center;
+    background-color: var(--subtheme);
     margin-top: 5px;
     margin-bottom: 5px;
     margin-left: 5px;
@@ -545,6 +544,9 @@ label:hover {
     display: none;
     color: var(--textcolor);
     border-radius: 15px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .filterframe {
@@ -568,11 +570,11 @@ label:hover {
     text-decoration: none;
     cursor: pointer;
     display: inline;
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 14px;
+    font-weight: 600;
     color: var(--textcolor);
     margin-bottom: 20px;
-    background-color: var(--subtheme);
+    background-color: var(--almostbackground);
     border: 0;
     border: none;
     outline: none;
@@ -587,4 +589,17 @@ label:hover {
 
 .activebutton {
     background-color: var(--themecolor) !important;
+}
+
+.filteritem .showcasemedia {
+    max-width: 80%;
+    margin-top: 20px;
+    height: max-content;
+}
+
+.filteritem .image-infos {
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
 }

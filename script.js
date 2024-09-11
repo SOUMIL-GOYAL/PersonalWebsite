@@ -107,7 +107,7 @@ function pulse(thecard) {
 }
 
 function makeskillsize() {
-    console.log("" + ($('.skillsdetail.shown').position().top + $(".skillsdetail.shown").height()));
+    //console.log("" + ($('.skillsdetail.shown').position().top + $(".skillsdetail.shown").height()));
     $("#skills").css({ "height": "" + ($('.skillsdetail.shown').offset().top + $(".skillsdetail.shown").height() - $("#skills").offset().top) });
     aligncovers();
 }
