@@ -597,6 +597,10 @@ label:hover {
     height: max-content;
 }
 
+.filteritem .showcasemedia.tallen {
+    height: 350px;
+}
+
 .filteritem .image-infos {
     text-align: center;
     padding-left: 10px;
