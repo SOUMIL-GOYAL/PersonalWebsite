@@ -24,6 +24,9 @@ $(document).ready(function() {
         // something went wrong hide the canvas container,
         // $("#cloudcanvascontainer");
     }
+
+    sizeit();
+    makepositions();
 });
 
 filterSelection("all");
