@@ -594,7 +594,6 @@ label:hover {
 .filteritem .showcasemedia {
     max-width: 80%;
     margin-top: 20px;
-    height: max-content;
 }
 
 .filteritem .showcasemedia.tallen {
