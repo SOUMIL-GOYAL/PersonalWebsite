@@ -110,8 +110,13 @@ function pulse(thecard) {
 }
 
 function makeskillsize() {
-    //console.log("" + ($('.skillsdetail.shown').position().top + $(".skillsdetail.shown").height()));
-    $("#skills").css({ "height": "" + ($('.skillsdetail.shown').offset().top + $(".skillsdetail.shown").height() - $("#skills").offset().top) });
+    let cardAndTableHeight = ($('.skillsdetail.shown').offset().top + $(".skillsdetail.shown").height() - $("#skills").offset().top)
+    let canvasCloudHeight = ($("#skillscanvascontainer").offset().top + $("#skillscanvascontainer").height() - $("#skills").offset().top)
+    if (cardAndTableHeight > canvasCloudHeight) {
+        $("#skills").css({ "height": "" + cardAndTableHeight });
+    } else {
+        $("#skills").css({ "height": "" + canvasCloudHeight });
+    }
     aligncovers();
 }
 
