@@ -252,6 +252,7 @@ function filterSelection(c) {
         }
     }
     makepositions();
+
 }
 
 function makepositions() {
