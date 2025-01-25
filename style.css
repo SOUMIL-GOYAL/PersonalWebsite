@@ -246,7 +246,7 @@ h3 {
 
 .skillsdetail {
     position: absolute;
-    display: none;
+    display: flex;
     flex-direction: column;
     /* pointer-events: none; */
     /* width: 0; */
@@ -269,7 +269,10 @@ h3 {
 
 .shown {
     z-index: 10;
-    display: flex !important;
+}
+
+.shown .bottomdetail {
+    display: block !important;
 }
 
 .shown:after {
@@ -353,6 +356,7 @@ h3 {
 
 .bottomdetail {
     margin: 10px;
+    display: none;
 }
 
 .bottomdetail h5 {

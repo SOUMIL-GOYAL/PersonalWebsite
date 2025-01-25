@@ -76,6 +76,7 @@ $("#cloudcanvas a").each(function() {
         $("#skillsdetailscontainer .shown").removeClass("shown");
         var reference = currentlink.attr("href");
         $(reference).addClass("shown");
+        makeskillsize()
     });
 });
 
