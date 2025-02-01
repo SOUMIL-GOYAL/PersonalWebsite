@@ -10,13 +10,32 @@ function isMouseDevice() {
 
 let hasCursor = false;
 
-function onMouseMove() {
+function cursorOkay() {
     hasCursor = true;
     cursor.normalize;
     cursor.show()
-    window.removeEventListener('mousemove', onMouseMove);
+        //window.removeEventListener('pointermove', detectPointer);
 }
-window.addEventListener('mousemove', onMouseMove);
+
+function detectPointer(event) {
+    switch (event.pointerType) {
+        case "mouse":
+            console.log("Mouse input detected");
+            cursorOkay();
+            break;
+        case "pen":
+            console.log("Pen input detected");
+            cursorOkay();
+            break;
+        case "touch":
+            console.log("Touch input detected");
+            hasCursor = false
+            break;
+        default:
+            console.log("Unknown input type detected");
+    }
+}
+window.addEventListener('pointermove', detectPointer);
 
 
 var mousePosition = { x: 0, y: 0 };
