@@ -523,7 +523,7 @@ h3 {
 .image-links i {
     font-size: 16px;
     color: #45505b;
-    padding: 10px;
+    padding-top: 10px;
 }
 
 label:hover {
@@ -617,4 +617,8 @@ label:hover {
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 10px;
+}
+
+.image-infos {
+    padding-bottom: 20px;
 }
