@@ -3,12 +3,11 @@ var typeIndex = 0;
 var typeWordIndex = 0;
 var final = "";
 var typingList = [
-    "Puzzle Solver",
-    "Math-lover",
-    "Brother",
+    "Problem-Solver",
+    "Innovater",
+    "Leader",
     "Thinker",
-    "Programmer",
-    "Sportsman",
+    "Learner",
     "Inquirer",
     "Communicator",
     "Builder"
