@@ -4,7 +4,7 @@ var typeWordIndex = 0;
 var final = "";
 var typingList = [
     "Problem-Solver",
-    "Innovater",
+    "Innovator",
     "Leader",
     "Thinker",
     "Learner",
