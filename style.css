@@ -7,6 +7,7 @@
     --fontfamily: Montserrat, sans-serif;
     --backgroundcolor: #151716;
     --almostbackground: #222423;
+    --navcirclesize: 60px;
 }
 
 * {
@@ -39,7 +40,7 @@ body {
 }
 
 .section-container {
-    padding-left: 220px;
+    padding-left: 230px;
     padding-right: 10px;
     font-family: var(--fontfamily);
 }

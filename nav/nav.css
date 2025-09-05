@@ -28,8 +28,8 @@
 #navlist a {
     border-radius: 30px;
     margin: 15px;
-    width: 60px;
-    height: 60px;
+    width: var(--navcirclesize);
+    height: var(--navcirclesize);
     background-color: var(--subtheme);
     display: flex;
     align-items: center;
@@ -39,8 +39,17 @@
     text-decoration: none;
 }
 
+#navlist .nav-circle-wrapper {
+    width: var(--navcirclesize);
+    height: var(--navcirclesize);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
 #navlist a:hover {
-    width: 160px;
+    width: 175px;
     color: var(--textontheme);
 }
 
@@ -51,9 +60,10 @@
 }
 
 #navlist i {
-    width: 20px;
+    /* width: 20px;
     height: 20px;
-    margin: 20px;
+    margin: 20px; */
+    font-size: 16px;
 }
 
 #navlist a:hover h4 {
