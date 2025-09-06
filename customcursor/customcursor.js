@@ -20,15 +20,15 @@ function cursorOkay() {
 function detectPointer(event) {
     switch (event.pointerType) {
         case "mouse":
-            console.log("Mouse input detected");
+            // console.log("Mouse input detected");
             cursorOkay();
             break;
         case "pen":
-            console.log("Pen input detected");
+            // console.log("Pen input detected");
             cursorOkay();
             break;
         case "touch":
-            console.log("Touch input detected");
+            // console.log("Touch input detected");
             hasCursor = false
             break;
         default:

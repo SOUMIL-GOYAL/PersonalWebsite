@@ -1593,6 +1593,43 @@
     <script src="cloud/cloud.js"></script>
     <script src="ScrollSwitcher/ScrollSwitcher.js"></script>
     <script src="script.js"></script>
+
+
+
+    <!-- <script>
+        // Wait for web fonts to load before starting TagCanvas
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(function() {
+                if (window.TagCanvas) {
+                    try {
+                        TagCanvas.Start('cloudcanvas', 'tags', {
+                            textFont: 'Montserrat, Lato, Arial, sans-serif',
+                            textColour: '#ff99ff',
+                            outlineColour: '#ffff99',
+                            textHeight: 30,
+                            // ...add any other options you want...
+                        });
+                    } catch (e) {
+                        console.log('TagCanvas error:', e);
+                    }
+                }
+            });
+        } else {
+            // Fallback for browsers without FontFaceSet support
+            if (window.TagCanvas) {
+                try {
+                    TagCanvas.Start('cloudcanvas', 'tags', {
+                        textFont: 'Montserrat, Lato, Arial, sans-serif',
+                        textColour: '#ff99ff',
+                        outlineColour: '#ffff99',
+                        textHeight: 30,
+                    });
+                } catch (e) {
+                    console.log('TagCanvas error:', e);
+                }
+            }
+        }
+    </script> -->
 </body>
 
 </html>
