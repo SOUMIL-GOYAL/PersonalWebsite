@@ -74,7 +74,7 @@
 #navlist .active {
     background-color: var(--themecolor);
     color: var(--textontheme);
-    box-shadow: 0 0 20px red;
+    box-shadow: 0 0 20px var(--themecolor);
 }
 
 #navbartoggle {
