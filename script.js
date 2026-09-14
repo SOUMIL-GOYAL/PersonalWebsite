@@ -349,3 +349,12 @@ for (var i = 0; i < btns.length; i++) {
 }
 
 $("a[href^=http").prop("target", "_blank");
+
+
+filterSelection("all");
+console.log('refiltered0');
+
+$(window).load(function(){ 
+    filterSelection("all");
+    console.log('refiltered1');
+});
