@@ -54,4 +54,5 @@ new ScrollSwitcher(document.getElementById('mainimage'), [
     'images/suit-profile-website.jpg',
     'images/SpeechGiving-square.jpg',
     'images/sword-picture-square.jpg',
+    'images/Suitheadshotcropped.jpg',
 ]);
